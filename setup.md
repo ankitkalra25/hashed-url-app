@@ -1,6 +1,8 @@
+
+## Setup for Backend server
 We will use Node.js with Express for the server, and MongoDB for the database. Here's a step-by-step implementation.
 
-## Step 1: Setup Node.js Project
+## Step 1: Setup Node.js Project in local
 
 1. Initialize the project:
 mkdir urlhash
@@ -50,13 +52,39 @@ This setup provides a robust and flexible URL hashing system that preserves quer
 ## Deploying the Backend or API in vercel
 Step 1: Log in to Vercel dashboard and click on the “Add New…” button and select the “Project” category. As you can see here, I’m already logged in and I have quite a number of projects with vercel already deployed.
 
-Step 2: Import your Git repository after linking your https://github.com/ankitkalra25/url-hash-apiaccount with Vercel.
+Step 2: Import your Git repository after linking your https://github.com/ankitkalra25/hashed-url-app account with Vercel.
 
 Step 3: Configure the backend/server on Vercel
-- Name your project, such as “url-hash-api”
+- Name your project, such as “hashed-url-backend-api”
 - Select “Other” in the framework option to tailor the setup and customization process to Node.js.
 - Add any necessary environmental variables, such as MONGO_ATLAS_URL: my-mongo-atlas-url. Note: There could be more than one!
 - Finally, click on the “Deploy” button.
 - Step 4: Very Important, Include the provided vercel.json file in your backend/server root directory and then push it to your remote repository. This will enable Vercel configuration.
 
-Quick Note: As soon as possible, don’t forget to save the new deployment link of your server. “https://url-hash-api.vercel.app" in this case, and replace it in your code wherever the local server link was provided.
+Quick Note: As soon as possible, don’t forget to save the new deployment link of your server. “https://hashed-url-backend-api.vercel.app" in this case, and replace it in your code wherever the local server link was provided.
+
+## Setup for Frontend client
+We will use React.js for the client. Here's a step-by-step implementation.
+
+## Step 1: Setup react app Project in local
+1. Clone the repository: git clone https://github.com/ankitkalra25/hashed-url-app.git
+
+2. Navigate into the project directory: cd client
+
+3. Install dependencies: npm install
+
+4. create .env file in root folder and write:
+VITE_APP_API_URL=https://hashed-url-backend-api.vercel.app
+5. Command to run the project: npm run dev
+
+## Deploying the Frontend or client in vercel
+Step 1: Once again, Go to Vercel dashboard and click on the “Add New…” button and select the “Project” category.
+Step 2: Import your Git repository after linking your https://github.com/ankitkalra25/hashed-url-app account with Vercel.
+Step 3: Configure the frontend for your MERN application on Vercel
+- Name your project, such as “hashed-url-app-cygm”
+- Choose “Create-React-App” from the available frameworks to ensure that the configuration and modification procedures are tailored for React.js.
+- Indicate the frontend directory of your project where Vercel will run the build command.
+- Add any necessary environmental variables, such as REACT_APP_LOCALHOST_KEY: chat-app-current-user.
+- Finally, click on the “Deploy” button once you’re done.
+
+
