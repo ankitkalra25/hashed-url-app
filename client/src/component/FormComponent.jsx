@@ -14,18 +14,13 @@ const MyFormComponent = () => {
     console.log('Text:', url);
     console.log('Input:', expirationUrl);
     console.log('Selected Option:', selectedOption);
-    const config={
-      data: {
-        url: url,
-        expiration_days: expirationUrl,
-        single_use:selectedOption
-    }
+  const {data} = await axios.post(`${import.meta.env.VITE_APP_API_URL}/shorten`,{
+    url: url,
+    expiration_days: expirationUrl,
+    single_use:selectedOption
+  })
+  console.log(data)
   }
-   const {data} = await axios.post(`${import.meta.env.VITE_APP_API_URL}/shorten`, config)
-   console.log(data)
-
-  };
-
   return (
     <>
     <form className='container' onSubmit={handleSubmit}>
