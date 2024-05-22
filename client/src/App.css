@@ -132,6 +132,13 @@ align-items: start;
 .hashed-url{
   font-size: 18px;
   color: moccasin;
+  position: relative;
+
+}
+.hashed-url-child{
+  position: absolute;
+  right: -0.5rem;
+  font-size: 14px;
 }
 
 .hashed-box{

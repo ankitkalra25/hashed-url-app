@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.use(cors());
 // Allow specific origin(s)
 app.use(cors({
-  origin: 'http://localhost:5173/'
+  origin: 'http://localhost:5173'
 }));
 
 // Connect to MongoDB
