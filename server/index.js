@@ -14,7 +14,7 @@ console.log(process.env.MONGODB_URL)
 app.use(cors());
 // Allow specific origin(s)
 app.use(cors({
-  origin: 'https://hashed-url-app-cygm.vercel.app/'
+  origin: 'https://hashed-url-app-cygm.vercel.app'
 }));
 
 // Connect to MongoDB
