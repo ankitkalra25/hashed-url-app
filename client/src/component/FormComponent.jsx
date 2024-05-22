@@ -1,18 +1,29 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import HashedUrlComponent from './HashedUrlComponent';
 
 const MyFormComponent = () => {
   const [url, setUrl] = useState('');
   const [expirationUrl, setExpirationUrl] = useState('');
   const [hashedUrl, setHashedUrl] = useState({url:'https://example.com'})
-  const [selectedOption, setSelectedOption] = useState('option2');
+  const [selectedOption, setSelectedOption] = useState(false);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async(event) => {
     event.preventDefault();
     // Handle form submission logic here
     console.log('Text:', url);
     console.log('Input:', expirationUrl);
     console.log('Selected Option:', selectedOption);
+    const config={
+      data: {
+        url: url,
+        expiration_days: expirationUrl,
+        single_use:selectedOption
+    }
+  }
+   const {data} = await axios.post(`${import.meta.env.VITE_APP_API_URL}/shorten`, config)
+   console.log(data)
+
   };
 
   return (
@@ -49,8 +60,8 @@ const MyFormComponent = () => {
           <input
           className="input url"
             type="radio"
-            value="option1"
-            checked={selectedOption === 'option1'}
+            value={true}
+            checked={selectedOption === true}
             onChange={(e) => setSelectedOption(e.target.value)}
           />
         </label>
@@ -59,8 +70,8 @@ const MyFormComponent = () => {
           <input
           className="input url"
             type="radio"
-            value="option2"
-            checked={selectedOption === 'option2'}
+            value={false}
+            checked={selectedOption === false}
             onChange={(e) => setSelectedOption(e.target.value)}
           />
         </label>

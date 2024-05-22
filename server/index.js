@@ -3,10 +3,19 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 require('dotenv').config()
 const crypto = require('crypto');
+const cors = require('cors');
 const Url = require('./models/urls');
 
 const app = express();
 app.use(bodyParser.json());
+
+
+// Allow all origins
+app.use(cors());
+// Allow specific origin(s)
+app.use(cors({
+  origin: 'http://localhost:5173/'
+}));
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URL, {
